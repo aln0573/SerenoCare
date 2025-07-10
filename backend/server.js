@@ -13,7 +13,15 @@ import userRouter from './routes/userRoutes.js'
  connectCloudinary()
  
  app.use(express.json())
- app.use(cors())
+const corsOptions = {
+  origin: [
+    'https://admin-chi-peach-63.vercel.app',
+    'https://sereno-care.vercel.app'
+  ],
+  credentials: true,
+}
+
+app.use(cors(corsOptions))
 
  app.use('/api/admin/',adminRouter)
  app.use('/api/doctor/',doctorRouter)

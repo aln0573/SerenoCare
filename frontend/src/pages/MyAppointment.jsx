@@ -21,7 +21,7 @@ const MyAppointment = () => {
 
   const getUsersAppointments = async () => {
     try {
-      const { data } = await axios.get('http://localhost:4000/api/user/appointments',{headers: {token}});
+      const { data } = await axios.get('https://serenocare.onrender.com/api/user/appointments',{headers: {token}});
 
       if (data.success) {
         setAppointments(data.appointments.reverse());
@@ -35,7 +35,7 @@ const MyAppointment = () => {
 
   const cancelAppointments = async (appointmentId) => {
     try {
-      const { data } = await axios.post('http://localhost:4000/api/user/cancel-appointment',{appointmentId},{headers: {token}});
+      const { data } = await axios.post('https://serenocare.onrender.com/api/user/cancel-appointment',{appointmentId},{headers: {token}});
       if (data.success) {
         toast.success(data.message);
         getUsersAppointments();
@@ -63,7 +63,7 @@ const MyAppointment = () => {
 
         try {
           
-          const {data} = await axios.post('http://localhost:4000/api/user/verifyRazorpay', response , {headers: {token}})
+          const {data} = await axios.post('https://serenocare.onrender.com/api/user/verifyRazorpay', response , {headers: {token}})
 
           if(data.success){
             getUsersAppointments()
@@ -88,7 +88,7 @@ const MyAppointment = () => {
   const appointmentRazorpay = async (appointmentId) => {
     try {
 
-      const {data} = await axios.post('http://localhost:4000/api/user/payment-razorpay', {appointmentId}, {headers: {token}})
+      const {data} = await axios.post('https://serenocare.onrender.com/api/user/payment-razorpay', {appointmentId}, {headers: {token}})
 
       if(data.success){
         initPay(data.order)
