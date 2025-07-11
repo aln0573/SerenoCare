@@ -92,7 +92,7 @@ const Appointment = () => {
 
       const slotDate = day + "-" + month + "-" + year
 
-      const {data} = await axios.post('https://serenocare.onrender.com/api/user/book-appointment', {docId, slotDate , slotTime}, {headers: {token}})
+      const {data} = await axios.post('http://localhost:4000/api/user/book-appointment', {docId, slotDate , slotTime}, {headers: {token}})
 
       if(data.success){
         toast.success(data.message)

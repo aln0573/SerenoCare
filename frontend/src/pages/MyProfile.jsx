@@ -24,7 +24,7 @@ const MyProfile = () => {
       formData.append("dob", userData.dob);
       if (image) formData.append("image", image);
 
-      const res = await fetch('https://serenocare.onrender.com/api/user/update-profile', {
+      const res = await fetch('http://localhost:4000/api/user/update-profile', {
         method: 'POST',
         headers: {token},
         body: formData
